@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes, HashRouter } from 'react-router-dom';
 import MainLayout from './layouts/mainLayout';
 import MainPage from './routes/mainPage';
 import SearchPage from './routes/searchPage';
@@ -10,13 +10,13 @@ const container = document.getElementById('app-root')!;
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <MainLayout>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/address" element={<SearchPage />} />
         </Routes>
       </MainLayout>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
