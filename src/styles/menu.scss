@@ -30,7 +30,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // gap: 40px;
+
     > .menuItem {
       box-sizing: border-box;
       padding: 20px 20px 20px 32px;
@@ -58,8 +58,16 @@
 
       .arrow {
         margin-left: auto;
+        transition: transform 0.2s linear;
+      }
+
+      .flipped {
         transform: rotate(180deg);
       }
+    }
+
+    > .subMenu {
+      padding-left: 80px;
     }
   }
 }

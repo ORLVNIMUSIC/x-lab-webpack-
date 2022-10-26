@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function SettingsArrow() {
+export default function SettingsArrow({ flipped }: { flipped: boolean }) {
+  const style = 'arrow' + (flipped ? ' flipped' : '');
+
   return (
     <svg
-      className="arrow"
+      className={style}
       width="13"
       height="12"
       viewBox="0 0 13 12"
