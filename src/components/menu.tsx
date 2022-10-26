@@ -8,6 +8,7 @@ import CalendarIcon from '../assets/calendar';
 import TablesIcon from '../assets/vs_tables';
 import AddressIcon from '../assets/ic_address';
 import MainIcon from '../assets/main';
+import SettingsArrow from '../assets/settingsArrow';
 
 export default function Menu() {
   return (
@@ -41,6 +42,7 @@ export default function Menu() {
         <div className="menuItem">
           <SettingsIcon />
           <span>Настройки</span>
+          <SettingsArrow />
         </div>
         <div className="menuItem">
           <ExitIcon />

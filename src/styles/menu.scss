@@ -3,8 +3,8 @@
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 0px 5px rgba(2, 0, 96, 0.25);
   box-sizing: border-box;
-  padding: 24px 20px 0 32px;
   margin: 0;
+  padding: 0;
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -22,19 +22,22 @@
     line-height: 24px;
 
     color: #1c1c1e;
-    padding-bottom: 32px;
+    padding: 24px 0 32px 32px;
   }
 
   > .items {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
+    // gap: 40px;
     > .menuItem {
+      box-sizing: border-box;
+      padding: 20px 20px 20px 32px;
+      width: 100%;
       display: flex;
       gap: 16px;
       align-items: center;
-      justify-content: center;
 
       font-family: 'Montserrat';
       font-style: normal;
@@ -45,6 +48,18 @@
       /* Text */
 
       color: #1c1c1e;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.089);
+        transition: background-color 0.1s linear;
+      }
+
+      .arrow {
+        margin-left: auto;
+        transform: rotate(180deg);
+      }
     }
   }
 }
