@@ -29,12 +29,14 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.svg$/,
+        test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
+          'file-loader',
           {
-            loader: 'svg-url-loader',
+            loader: 'image-webpack-loader',
             options: {
-              limit: 10000,
+              bypassOnDebug: true, // webpack@1.x
+              disable: true, // webpack@2.x and newer
             },
           },
         ],

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import '../styles/searchContent.scss';
 import React from 'react';
+import SearchIcon from '../assets/searchIcon';
 
 export default function SearchContent() {
   const [searchData, setSearchData] = useState<any[]>([]);
@@ -19,7 +20,7 @@ export default function SearchContent() {
               'Content-Type': 'application/json',
               Accept: 'application/json',
               Authorization: 'Token ' + process.env.APITOKEN,
-              'X-Secret': process.env.SECRET + '',
+              'X-Secret': process.env.SECRET!,
             },
             signal: controller.signal,
             body: JSON.stringify({
@@ -57,10 +58,7 @@ export default function SearchContent() {
             minLength={3}
           />
           <button className="searchButton" type="submit">
-            <object
-              data="./src/assets/searchIcon.svg"
-              type="image/svg+xml"
-            ></object>
+            <SearchIcon />
             <span>Поиск</span>
           </button>
         </div>

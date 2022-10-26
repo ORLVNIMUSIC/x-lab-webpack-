@@ -1,5 +1,13 @@
 import '../styles/menu.scss';
 import React from 'react';
+import ExitIcon from '../assets/exit';
+import SettingsIcon from '../assets/settings';
+import VidgetsIcon from '../assets/vidgets';
+import MapsIcon from '../assets/map';
+import CalendarIcon from '../assets/calendar';
+import TablesIcon from '../assets/vs_tables';
+import AddressIcon from '../assets/ic_address';
+import MainIcon from '../assets/main';
 
 export default function Menu() {
   return (
@@ -7,35 +15,35 @@ export default function Menu() {
       <span>Меню</span>
       <div className="items">
         <div className="menuItem">
-          <object data="./src/assets/ic_главная.svg" type="image/svg+xml" />
+          <MainIcon />
           <span>Главная</span>
         </div>
         <div className="menuItem">
-          <object data="./src/assets/ic_address.svg" type="image/svg+xml" />
+          <AddressIcon />
           <span>Поиск адресов</span>
         </div>
         <div className="menuItem">
-          <object data="./src/assets/vs_tables.svg" type="image/svg+xml" />
+          <TablesIcon />
           <span>Таблицы</span>
         </div>
         <div className="menuItem">
-          <object data="./src/assets/Group 697.svg" type="image/svg+xml" />
+          <CalendarIcon />
           <span>Календарь</span>
         </div>
         <div className="menuItem">
-          <object data="./src/assets/Group.svg" type="image/svg+xml" />
+          <MapsIcon />
           <span>Карты</span>
         </div>
         <div className="menuItem">
-          <object data="./src/assets/vidgets.svg" type="image/svg+xml" />
+          <VidgetsIcon />
           <span>Виджеты</span>
         </div>
         <div className="menuItem">
-          <object data="./src/assets/settings.svg" type="image/svg+xml" />
+          <SettingsIcon />
           <span>Настройки</span>
         </div>
         <div className="menuItem">
-          <object data="./src/assets/exit.svg" type="image/svg+xml" />
+          <ExitIcon />
           <span>Выход</span>
         </div>
       </div>

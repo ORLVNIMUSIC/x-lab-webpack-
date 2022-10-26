@@ -81,6 +81,7 @@ main {
         border-radius: 10px;
         gap: 16px;
         cursor: pointer;
+        padding: 0 40px;
 
         > span {
           font-family: 'Montserrat';
@@ -91,13 +92,6 @@ main {
           /* identical to box height */
 
           color: #ffffff;
-
-          padding-right: 40px;
-        }
-
-        > object {
-          padding-left: 40px;
-          pointer-events: none;
         }
       }
     }
