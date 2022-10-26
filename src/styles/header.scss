@@ -1,0 +1,36 @@
+header {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 32px;
+  height: 80px;
+  background-color: #4f27bf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > .logo,
+  > .rightSide {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    > span {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+
+      color: #ffffff;
+    }
+  }
+
+  > .logo {
+    gap: 24px;
+  }
+
+  > .rightSide {
+    gap: 16px;
+  }
+}

@@ -1,4 +1,18 @@
+import Header from '../components/header';
+import Menu from '../components/menu';
+import SearchContent from '../components/searchContent';
 import React from 'react';
-export default function App() {
-  return <>hello world stupid</>;
+
+function App() {
+  return (
+    <>
+      <Header />
+      <div className="content">
+        <Menu />
+        <SearchContent />
+      </div>
+    </>
+  );
 }
+
+export default App;
