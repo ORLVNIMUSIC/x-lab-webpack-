@@ -32,12 +32,14 @@
     align-items: flex-start;
 
     > .menuItem {
+      position: relative;
       box-sizing: border-box;
       padding: 20px 20px 20px 32px;
       width: 100%;
       display: flex;
       gap: 16px;
       align-items: center;
+      overflow: hidden;
 
       font-family: 'Montserrat';
       font-style: normal;
@@ -63,6 +65,17 @@
 
       .flipped {
         transform: rotate(-60deg);
+      }
+
+      > .routePointer {
+        position: absolute;
+        width: 6px;
+        height: 37px;
+        right: 0;
+        transform: translate(50%);
+
+        background: #4f27bf;
+        border-radius: 5px;
       }
     }
 

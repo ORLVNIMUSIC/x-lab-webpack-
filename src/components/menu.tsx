@@ -10,11 +10,12 @@ import AddressIcon from '../assets/ic_address';
 import MainIcon from '../assets/main';
 import SettingsArrow from '../assets/settingsArrow';
 import Settings from './settings';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Menu() {
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
   const navigator = useNavigate();
+  const location = useLocation();
 
   function settingsHandler() {
     setIsSettingsOpen((prev) => !prev);
@@ -35,10 +36,16 @@ export default function Menu() {
         <div className="menuItem" onClick={mainHandler}>
           <MainIcon />
           <span>Главная</span>
+          {location.pathname === '/' ? <div className="routePointer" /> : <></>}
         </div>
         <div className="menuItem" onClick={addressHandler}>
           <AddressIcon />
           <span>Поиск адресов</span>
+          {location.pathname === '/address' ? (
+            <div className="routePointer" />
+          ) : (
+            <></>
+          )}
         </div>
         <div className="menuItem">
           <TablesIcon />
