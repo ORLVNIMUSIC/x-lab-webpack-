@@ -10,23 +10,33 @@ import AddressIcon from '../assets/ic_address';
 import MainIcon from '../assets/main';
 import SettingsArrow from '../assets/settingsArrow';
 import Settings from './settings';
+import { useNavigate } from 'react-router-dom';
 
 export default function Menu() {
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
+  const navigator = useNavigate();
 
   function settingsHandler() {
     setIsSettingsOpen((prev) => !prev);
+  }
+
+  function addressHandler() {
+    navigator('/address');
+  }
+
+  function mainHandler() {
+    navigator('/');
   }
 
   return (
     <menu className="menu">
       <span>Меню</span>
       <div className="items">
-        <div className="menuItem">
+        <div className="menuItem" onClick={mainHandler}>
           <MainIcon />
           <span>Главная</span>
         </div>
-        <div className="menuItem">
+        <div className="menuItem" onClick={addressHandler}>
           <AddressIcon />
           <span>Поиск адресов</span>
         </div>

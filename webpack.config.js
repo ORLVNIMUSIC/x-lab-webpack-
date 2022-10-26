@@ -9,6 +9,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: __dirname + '/dist/',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -38,4 +39,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };
