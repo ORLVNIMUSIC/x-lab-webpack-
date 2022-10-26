@@ -70,11 +70,18 @@ export default function SearchPage() {
         searchData.length ? (
           <div className="searchResult">
             <h2>Адреса</h2>
-            {searchData.map((address, idx) => (
-              <h4 key={address.data.geo_lat + address.data.postal_code + idx}>
-                {address.unrestricted_value}
-              </h4>
-            ))}
+            {searchData.map((address, idx) => {
+              const mailLink = `mailto:${address.data.postal_code}@example.com`;
+
+              return (
+                <h4 key={address.data.geo_lat + address.data.postal_code + idx}>
+                  <a href={mailLink} target={'_blank'}>
+                    {address.data.postal_code}
+                  </a>{' '}
+                  {address.value}
+                </h4>
+              );
+            })}
           </div>
         ) : (
           <h4>Нет данных по этому запросу</h4>
