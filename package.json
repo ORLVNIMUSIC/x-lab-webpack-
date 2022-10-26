@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --port 3000",
+    "dev": "set NODE_ENV=development && webpack serve --port 3000",
     "build": "set NODE_ENV=production && webpack",
-    "start": "npx serve dist"
+    "start": "set NODE_ENV=production && npx serve dist"
   },
   "author": "",
   "license": "ISC",
