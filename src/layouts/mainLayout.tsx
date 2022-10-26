@@ -1,18 +1,15 @@
+import React, { ReactNode } from 'react';
 import Header from '../components/header';
 import Menu from '../components/menu';
-import SearchContent from '../components/searchContent';
-import React from 'react';
 
-function App() {
+export default function MainLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
       <div className="content">
         <Menu />
-        <SearchContent />
+        {children}
       </div>
     </>
   );
 }
-
-export default App;

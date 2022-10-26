@@ -1,7 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import App from './routes/app';
+import MainPage from './routes/mainPage';
+import SearchPage from './routes/searchPage';
 import './styles/index.scss';
 
 const container = document.getElementById('app-root')!;
@@ -10,8 +11,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<h1>hello</h1>}></Route>
-        <Route path="/address" element={<App />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/address" element={<SearchPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
