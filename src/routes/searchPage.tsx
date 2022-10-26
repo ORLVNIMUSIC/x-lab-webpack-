@@ -4,35 +4,38 @@ import React from 'react';
 import SearchIcon from '../assets/searchIcon';
 
 export default function SearchPage() {
-  const [searchData, setSearchData] = useState<any[]>([]);
+  const [searchData, setSearchData] = useState<any[]>();
 
   const searchInput = useRef<HTMLInputElement>(null);
 
   async function fetchData(controller: AbortController, searchString?: string) {
     try {
-      const data = await (
-        await fetch(
-          'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address',
-          {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json',
-              Authorization: 'Token ' + process.env.APITOKEN,
-              'X-Secret': process.env.SECRET!,
-            },
-            signal: controller.signal,
-            body: JSON.stringify({
-              query: searchString ? searchString : '',
-            }),
-          }
-        )
-      ).json();
+      const response = await fetch(
+        'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address',
+        {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            Authorization: 'Token ' + process.env.APITOKEN,
+            'X-Secret': process.env.SECRET!,
+          },
+          signal: controller.signal,
+          body: JSON.stringify({
+            query: searchString ? searchString : '',
+          }),
+        }
+      );
 
-      setSearchData(data.suggestions);
-    } catch {
-      console.log('request aborted');
+      if (response.status === 200) {
+        const data = await response.json();
+        setSearchData(data.suggestions);
+      } else {
+        throw new Error('Service is not working');
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -63,17 +66,21 @@ export default function SearchPage() {
           </button>
         </div>
       </form>
-      {searchData.length ? (
-        <div className="searchResult">
-          <h2>Адреса</h2>
-          {searchData.map((address, idx) => (
-            <h4 key={address.data.geo_lat + address.data.postal_code + idx}>
-              {address.value}
-            </h4>
-          ))}
-        </div>
+      {searchData ? (
+        searchData.length ? (
+          <div className="searchResult">
+            <h2>Адреса</h2>
+            {searchData.map((address, idx) => (
+              <h4 key={address.data.geo_lat + address.data.postal_code + idx}>
+                {address.unrestricted_value}
+              </h4>
+            ))}
+          </div>
+        ) : (
+          <h4>Нет данных по этому запросу</h4>
+        )
       ) : (
-        ''
+        <></>
       )}
     </main>
   );
