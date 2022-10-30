@@ -15,8 +15,8 @@ or your favourite package manager.
 **_IMPORTANT:_** Create .env file in the root directory of the project and initialize several variables in it:
 
 ```env
-APITOKEN = *your token from dadata.com (Authorization)*
-SECRET = *your secret token from dadata.com (X-Secret)*
+APITOKEN = *your token from dadata.ru (Authorization)*
+SECRET = *your secret token from dadata.ru (X-Secret)*
 ```
 
 Then run the app in development mode with:
